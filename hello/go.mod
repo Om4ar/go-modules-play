@@ -1,3 +1,3 @@
-module testone/hello
+module github.com/testone/hello
 
 go 1.12
