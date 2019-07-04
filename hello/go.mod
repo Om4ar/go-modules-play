@@ -1,3 +1,3 @@
-module github.com/go-modules-play/hello
+module github.com/MuhamadOmr/go-modules-play/hello
 
 go 1.12
