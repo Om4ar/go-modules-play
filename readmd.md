@@ -72,3 +72,34 @@ go mod init github.com/org/myrepo
 this will name the module as github.com/org/myrepo .. naming 
  
 
+
+initialize the module (collection of pacakges, somthing like pacakge.json)
+for golang =>>
+`		go mod init <SOURCE_NAME: github.com/pushbots/analytics>`
+
+remove the unused dependecies and download testing packages  ==>
+`		go mod tidy `
+
+building the project will install and detect the go module and download it ==>
+`		go build `
+
+upgrade one dependency inside the go.mod to the latest version ==>
+`		go get -u github.com/repo/pck `
+
+what is the tree usage of a module inside our go.mod  ==>
+`		go mode why -m github.com/org/repo ` 
+
+to work with development packages before commiting 
+`go mod edit --replace github.com/org/repo=../localFolderOfRepo`
+
+
+download the dependencies for older go versions ==>
+`		go mod vendor `
+
+find all the modules and download it and install it for go.mod witout building the 
+project ==>
+`		go get ./..  `
+
+go install ??
+
+`go build ./..`
