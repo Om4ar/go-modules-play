@@ -1,7 +1,7 @@
 package main
 
 import (
-	hey "testone/hello"
+	hey "github.com/MuhamadOmr/go-modules-play/hello"
 
 	"github.com/sirupsen/logrus"
 )
