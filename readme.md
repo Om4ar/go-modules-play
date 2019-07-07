@@ -1,5 +1,14 @@
 # golang intro!
 
+## reference 
+- [golang intro!](#golang-intro)
+	- [reference](#reference)
+	- [Installation](#Installation)
+		- [for vscode only ( install golang development dependencies )](#for-vscode-only--install-golang-development-dependencies)
+	- [go modules for dependency management](#go-modules-for-dependency-management)
+		- [go commands](#go-commands)
+		- [examples of code working with go modules](#examples-of-code-working-with-go-modules)
+
 ## Installation 
 
 latest stable version 12.6
