@@ -49,9 +49,13 @@ install `go` extenstion
 go modules is something like package.json for javascript projects ,
 please read this for more info about go modules
 [https://blog.golang.org/using-go-modules](https://blog.golang.org/using-go-modules)
+
 [https://github.com/golang/go/wiki/Modules](https://github.com/golang/go/wiki/Modules)
+
 video tutorials  
+
 [video 1](https://www.youtube.com/watch?v=aeF3l-zmPsY)
+
 [video 2 ](https://www.youtube.com/watch?v=H_4eRD8aegk)
 
 ### go commands 
