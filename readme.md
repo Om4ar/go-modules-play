@@ -37,69 +37,32 @@ install `go` extenstion
 2. go to `settings` and change  Go: Format Tool to `goimports`
 
 ## go modules for dependency management 
-go modules is something like npm for nodejs 
+go modules is something like package.json for javascript projects ,
 please read this for more info about go modules
 [https://blog.golang.org/using-go-modules](https://blog.golang.org/using-go-modules)
 [https://github.com/golang/go/wiki/Modules](https://github.com/golang/go/wiki/Modules)
-
+video tutorials  
 [video 1](https://www.youtube.com/watch?v=aeF3l-zmPsY)
 [video 2 ](https://www.youtube.com/watch?v=H_4eRD8aegk)
 
-`note: go mod downloads the need dependencies inside GOPATH/pkg`
-go mod init <NAME_OF_YOUR_MODULE>
+### go commands 
+`go mod init <NAME_OF_YOUR_MODULE>` => start initializing the project as a go module, name of the module should be related to github repository path
 
-what should be commited 
-[https://github.com/MuhamadOmr/go-modules-play/tree/7495a601794ad71e5f014096c63cc7bd50767fc3](https://github.com/MuhamadOmr/go-modules-play/tree/7495a601794ad71e5f014096c63cc7bd50767fc3)
+`go build ` => building the project will detect and download download used go packages then would build the go project from the folder 
 
-what should be we are working on in the dev 
-[https://github.com/MuhamadOmr/go-modules-play/tree/d00a92ed31ff2ca15c74d47c1333398532efa256](https://github.com/MuhamadOmr/go-modules-play/tree/d00a92ed31ff2ca15c74d47c1333398532efa256)
+`go mod edit --replace github.com/org/repo=../localFolderOfModule`  => command that would temporarly use the local developed module before it is committed
 
-example for using go modules : 
-create `main.go` starting file for our app
-```go
-package  main
+`go get ./..` => find all used modules and download them for go.mod without building the project
 
-import  ("fmt")
+`go mode why -m github.com/org/repo` => would tell what is the tree usage of a module used from our go.mod
 
-func  main()  {
-fmt.Println("hello world")
-}
-```
-start installizeing the project as a go module
-```
-go mod init github.com/org/myrepo
-```
-this will name the module as github.com/org/myrepo .. naming 
- 
+note: `go mod` command downloads the need dependencies inside GOPATH/pkg
 
 
-initialize the module (collection of pacakges, somthing like pacakge.json)
-for golang =>>
-`		go mod init <SOURCE_NAME: github.com/pushbots/analytics>`
+### examples of code working with go modules  
 
-remove the unused dependecies and download testing packages  ==>
-`		go mod tidy `
+notice go.mod and how it is using replace to use the local folder for the go module, normally go module would fetched from vsc (github, ... ) and not from local folder like usage of modules in JavaScript for example
 
-building the project will install and detect the go module and download it ==>
-`		go build `
+[example: go modules in local development](https://github.com/MuhamadOmr/go-modules-play/tree/d00a92ed31ff2ca15c74d47c1333398532efa256)
 
-upgrade one dependency inside the go.mod to the latest version ==>
-`		go get -u github.com/repo/pck `
-
-what is the tree usage of a module inside our go.mod  ==>
-`		go mode why -m github.com/org/repo ` 
-
-to work with development packages before commiting 
-`go mod edit --replace github.com/org/repo=../localFolderOfRepo`
-
-
-download the dependencies for older go versions ==>
-`		go mod vendor `
-
-find all the modules and download it and install it for go.mod witout building the 
-project ==>
-`		go get ./..  `
-
-go install ??
-
-`go build ./..`
+[example: working with when go.mod modules should commited](https://github.com/MuhamadOmr/go-modules-play/tree/7495a601794ad71e5f014096c63cc7bd50767fc3)
