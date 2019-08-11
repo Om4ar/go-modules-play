@@ -8,6 +8,7 @@
 	- [go modules for dependency management](#go-modules-for-dependency-management)
 		- [go commands](#go-commands)
 		- [examples of code working with go modules](#examples-of-code-working-with-go-modules)
+		- [profiling and benchmarking](#profiling-and-benchmarking)
 
 ## Installation 
 
@@ -79,3 +80,21 @@ notice go.mod and how it is using replace to use the local folder for the go mod
 [example: go modules in local development](https://github.com/MuhamadOmr/go-modules-play/tree/d00a92ed31ff2ca15c74d47c1333398532efa256)
 
 [example: working with when go.mod modules should commited](https://github.com/MuhamadOmr/go-modules-play/tree/7495a601794ad71e5f014096c63cc7bd50767fc3)
+
+
+### profiling and benchmarking
+is to identify wich part of the code takes much time and cpu 
+using any tool for benchmarking an api (making multiple requests on a route)
+then use a go tooling for to get results out 
+1. use the a benchmark tool to hit the api multiple times like go-wrk or other custom tool for 1 minute 
+
+2. use pprof `go tool pprof --seconds=5 localhost:3000/debug/pprof/profile`
+
+3. use flame graphs => using go torch `go torch -t 5` => this will output torch.svg diagram 
+alternative
+`go tool pprof -http=":8081" [binary] [profile]` or ``go tool pprof -http=":8081" [binary] profile.cpu`
+
+4. how to write a benchmark (time per operations) for a single function instead of the whole project running using go-wrk or any other load tool
+make a `benchFuncName(b testing.B)` function for benchmarks that will loop over our method b.N 
+watch for more info [here](https://www.youtube.com/watch?v=uBjoTxosSys) 
+then use `go test -bench .`
